@@ -16,3 +16,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documen
 
 echo '- print out pods to verify that kube-dns pod is running'
 kubectl get pods --all-namespaces
+
+# # USE THIS FOR SINGLE NODE CLUSTERS
+# echo '- remove taint from master, allowing pods to schedule on the master node'
+# kubectl taint nodes --all node-role.kubernetes.io/master-
