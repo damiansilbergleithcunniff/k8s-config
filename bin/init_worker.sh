@@ -19,6 +19,6 @@ kubeadm join --token $TOKEN $MASTER_IP:$MASTER_PORT --discovery-token-ca-cert-ha
 echo 'exit root'
 EOF
 
-echo '-- Installing current user\'s  kubectl config from the master'
+echo "-- Installing current user's  kubectl config from the master"
 scp $MASTER_IP:~/.kube/config ~/.kube/config
 kubectl get nodes
