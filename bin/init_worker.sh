@@ -20,5 +20,5 @@ echo 'exit root'
 EOF
 
 echo "-- Installing current user's  kubectl config from the master"
-scp $MASTER_IP:~/.kube/config ~/.kube/config
+scp $MASTER_IP:~/.kube/config ~/.kube
 kubectl get nodes
