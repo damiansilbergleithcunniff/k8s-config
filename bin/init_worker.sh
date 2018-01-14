@@ -22,5 +22,5 @@ echo "-- Add the node role 'worker'"
 kubectl label no `hostname` node-role.kubernetes.io/worker=
 
 echo "-- sleep for 5 seconds then print the node list"
-sleep 5000
+sleep 5s
 kubectl get nodes
