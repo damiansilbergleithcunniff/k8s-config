@@ -7,12 +7,23 @@ There is some minor customization of the default documentation:
 * flannel is chosen as the pod network and installed as part of the setup.
 
 # Usage
-* `bin/init_node.sh` on each server in the cluster regardless of role.
-*  Then on the master run `bin/init_master.sh`
-  * When it completes run `bin/get_joincmd.sh
-  * Save the command that is output, you'll use it to join the workers in a minute $JOIN
-*  On each worker
-  * Use $JOIN, the output from above.
+* Clone this repo onto each node in your cluster
+* On the master: 
+  * run `bin/init_node.sh`
+  * run `bin/init_master.sh` 
+  * run 'bin/get_joincmd.sh`
+     * save the output of this command, you'll run it on each worker node in the cluster
+* On the workers:
+  * run `bin/init_node.sh`
+  * run the output of the `bin/get_joincmd.sh` from above
 
-You should now have a cluster that you can start to do things with.  Rerun `bin/get_joincmd.sh` anytime to get the command to run on additional nodes to add them to the cluster
+You should now have a cluster that you can start to do things with.  
 
+## Adding an additional worker
+If you want to add additional workers you can:
+* On the master:
+  * run 'bin/get_joincmd.sh`
+     * save the output of this command, you'll run it on each worker node in the cluster
+* On the workers:
+  * run `bin/init_node.sh`
+  * run the output of the `bin/get_joincmd.sh` from above
