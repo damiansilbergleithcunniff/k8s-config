@@ -22,7 +22,7 @@ You should now have a cluster that you can start to do things with.
 ## Adding an additional worker
 If you want to add additional workers you can:
 * On the master:
-  * run 'bin/get_joincmd.sh`
+  * run `bin/get_joincmd.sh`
      * save the output of this command, you'll run it on each worker node in the cluster
 * On the workers:
   * run `bin/init_node.sh`
