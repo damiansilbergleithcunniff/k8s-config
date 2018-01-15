@@ -5,6 +5,12 @@ echo "-== This should be run on a master ==-"
 MASTER_IP=`hostname -i` # <-- centOs
 MASTER_PORT=6443 # <-- lazy, should do this dynamically
 TOKEN=`sudo kubeadm token list | grep default-node-token | cut -d' ' -f1`
+# if the token is blank then we need to generate one
+if [ -z "$TOKEN" ]; then
+  sudo kubeadm token create
+  TOKEN=`sudo kubeadm token list | grep default-node-token | cut -d' ' -f1`
+fi
+
 # https://github.com/kubernetes/kubeadm/issues/519
 SHA256=`openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'`
 
