@@ -12,6 +12,12 @@ mv /etc/docker/daemon.json /etc/docker/daemon.json.default
 cp ../etc/docker/daemon.json /etc/docker/
 popd
 
+echo '- change out the docker package systemd script so that we can alter the logging driver when we want'
+pushd "${0%/*}"
+mv /etc/sysconfig/docker /etc/sysconfig/docker.default
+cp ../etc/sysconfig/docker /etc/sysconfig/
+popd
+
 echo '- enable and start docker'
 systemctl enable docker && systemctl start docker
 

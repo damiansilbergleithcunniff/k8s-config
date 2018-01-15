@@ -1,4 +1,5 @@
 {
   "bip": "172.18.0.1/16",
-  "fixed-cidr": "172.18.0.0/16"
+  "fixed-cidr": "172.18.0.0/16",
+  "log-driver": "journald"
 }
