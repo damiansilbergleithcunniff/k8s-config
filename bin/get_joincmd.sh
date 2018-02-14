@@ -24,7 +24,10 @@ echo "-- cert: $SHA256"
 echo
 echo "-= This is the standard join command that is printed during master initialiation ="
 echo "kubeadm join --token $TOKEN $MASTER_IP:$MASTER_PORT --discovery-token-ca-cert-hash sha256:$SHA256"
-
 echo
-echo "-= Use this command from the root of the k8s-config repo to join a node to this master =-"
+echo
+echo "-= Use this command from the root of the k8s-config repo to join a worker node to this master =-"
 echo "./bin/init_worker.sh $MASTER_IP $MASTER_PORT $TOKEN $SHA256"
+echo
+echo "-= Use this command from the root of the k8s-config repo to join a monitor node to this master =-"
+echo "./bin/init_monitor.sh $MASTER_IP $MASTER_PORT $TOKEN $SHA256"
