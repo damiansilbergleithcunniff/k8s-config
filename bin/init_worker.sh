@@ -18,6 +18,8 @@ echo "-- Installing current user's  kubectl config from the master"
 mkdir ~/.kube
 scp $MASTER_IP:~/.kube/config ~/.kube/config
 
+echo "-- sleep for 10 seconds before applying the role"
+sleep 10s
 echo "-- Add the node role 'worker'"
 kubectl label no `hostname` node-role.kubernetes.io/worker=
 
